@@ -1,189 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LURIX Bot</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: white;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LURIX Bot | The Best Discord Moderation Bot</title>
+    <style>
+        /* CSS for Basic Layout and Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-    /* Navigation Bar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #333;
-      padding: 10px 20px;
-    }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
 
-    .navbar h1 {
-      margin: 0;
-    }
+        header h1 {
+            font-size: 36px;
+        }
 
-    .navbar .invite-btn {
-      background-color: #7289da;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
 
-    /* Animated Background */
-    .background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, #ff5f6d, #ffc3a0);
-      animation: gradientAnimation 10s infinite;
-      z-index: -1;
-    }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
 
-    @keyframes gradientAnimation {
-      0% {
-        background: linear-gradient(45deg, #ff5f6d, #ffc3a0);
-      }
-      50% {
-        background: linear-gradient(45deg, #ff9a8b, #f7b7a3);
-      }
-      100% {
-        background: linear-gradient(45deg, #ff5f6d, #ffc3a0);
-      }
-    }
+        .btn:hover {
+            background-color: #0056b3;
+        }
 
-    /* Command Sections */
-    .commands {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-    }
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #333;
+        }
 
-    .command-category {
-      margin: 10px;
-      text-align: center;
-    }
+        .feature-list,
+        .commands-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
 
-    .command-btn {
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      margin: 5px;
-      cursor: pointer;
-    }
+        .feature-item,
+        .command-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            width: 45%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-    .red { background-color: red; }
-    .blue { background-color: #3498db; }
-    .green { background-color: #2ecc71; }
-    .yellow { background-color: #f39c12; }
+        .feature-item h3,
+        .command-item h4 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
 
-    /* Scrolling System */
-    .scrolling-text {
-      overflow-y: scroll;
-      height: 150px;
-      border: 2px solid #ccc;
-      margin: 20px;
-      padding: 10px;
-      background-color: #222;
-    }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-    /* Footer */
-    footer {
-      background-color: #333;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
 
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Contact Section */
-    .contact {
-      text-align: center;
-      padding: 30px;
-    }
-  </style>
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Header Section -->
+    <header>
+        <h1>LURIX - Your Ultimate Discord Moderation Bot</h1>
+    </header>
 
-  <!-- Navigation Bar -->
-  <div class="navbar">
-    <h1>LURIX</h1>
-    <button class="invite-btn" onclick="window.location.href='https://discord.gg/nSKcNBWHt7'">Invite the Bot</button>
-  </div>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Get Now Section -->
+        <div class="text-center">
+            <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID&scope=bot&permissions=8"
+                class="btn">Get Now</a>
+        </div>
 
-  <!-- Animated Background -->
-  <div class="background"></div>
+        <!-- Features Section -->
+        <section>
+            <h2 class="section-title">Why Choose LURIX?</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>Advanced Moderation</h3>
+                    <p>Complete control over your server with powerful commands to manage users, channels, and more.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Customizable Commands</h3>
+                    <p>Tailor LURIX's commands to suit your server's needs, including AI-based functionalities.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Premium Features</h3>
+                    <p>Unlock extra capabilities, including automated moderation and extended music support.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>24/7 Support</h3>
+                    <p>Access our dedicated support team to help you with any issues or questions.</p>
+                </div>
+            </div>
+        </section>
 
-  <!-- Command Sections -->
-  <div class="commands">
-    <div class="command-category">
-      <h2>LURIX | MODERATION</h2>
-      <button class="command-btn red">Command 1</button>
-      <button class="command-btn red">Command 2</button>
+        <!-- Commands Section -->
+        <section>
+            <h2 class="section-title">Commands</h2>
+            <div class="commands-list">
+                <!-- COREACCESS Commands -->
+                <div class="command-item">
+                    <h4>COREACCESS</h4>
+                    <ul>
+                        <li>/help - Get help on bot usage</li>
+                        <li>/ping - Check the bot's latency</li>
+                        <li>/serverinfo - Get information about the server</li>
+                        <li>/userinfo - View details of a user</li>
+                        <li>/avatar - Display a user's avatar</li>
+                        <li>/about - Learn more about LURIX</li>
+                        <li>/roleinfo - Get info about a role</li>
+                        <li>/vote - Vote for the bot</li>
+                        <li>/invite - Get an invite link for LURIX</li>
+                    </ul>
+                </div>
+                <!-- UTILKIT Commands -->
+                <div class="command-item">
+                    <h4>UTILKIT</h4>
+                    <ul>
+                        <li>/announce - Make an announcement</li>
+                        <li>/audit - Audit logs of actions</li>
+                        <li>/dehoist - Remove hoist status from roles</li>
+                        <li>/inviteprune - Clean up old invites</li>
+                        <li>/lookup - Lookup a user or server</li>
+                    </ul>
+                </div>
+                <!-- Additional command categories can be added here as needed -->
+            </div>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section>
+            <h2 class="section-title">Privacy Policy</h2>
+            <p>Your privacy is important to us. We collect necessary information to ensure the bot works as expected, such as Discord usernames, IDs, and payment details for premium users. For more details, view our full <a href="#privacy-policy">Privacy Policy</a>.</p>
+        </section>
+
+        <!-- Terms and Conditions Section -->
+        <section>
+            <h2 class="section-title">Terms and Conditions</h2>
+            <p>By using LURIX, you agree to abide by our Terms and Conditions. For the full text, visit the <a href="#terms-conditions">Terms and Conditions</a> page.</p>
+        </section>
     </div>
-    <div class="command-category">
-      <h2>LURIX | MUSIC</h2>
-      <button class="command-btn blue">Command 1</button>
-      <button class="command-btn blue">Command 2</button>
-    </div>
-    <div class="command-category">
-      <h2>LURIX | MODERATION PREMIUM</h2>
-      <button class="command-btn green">Command 1</button>
-      <button class="command-btn green">Command 2</button>
-    </div>
-    <div class="command-category">
-      <h2>LURIX | MUSIC PREMIUM</h2>
-      <button class="command-btn yellow">Command 1</button>
-      <button class="command-btn yellow">Command 2</button>
-    </div>
-  </div>
 
-  <!-- Scrolling System -->
-  <div class="scrolling-text">
-    <p>Here is the scrolling system. You can add any additional text you want here. This section can include any relevant information about the bots.</p>
-  </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 LURIX. All Rights Reserved.</p>
+        <p>
+            <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-conditions">Terms & Conditions</a>
+        </p>
+    </footer>
 
-  <!-- About LURIX Section -->
-  <section>
-    <div class="contact">
-      <h2>About LURIX</h2>
-      <p>LURIX is a multi-purpose Discord bot with moderation and music features. It offers both free and premium commands to enhance server management.</p>
-      <h3>Upcoming Bots</h3>
-      <p>Stay tuned for our next bots with exciting new features!</p>
-    </div>
-  </section>
-
-  <!-- Contact Information -->
-  <section class="contact">
-    <h3>Contact Us</h3>
-    <p>Email: <a href="mailto:official.lurix@gmail.com">official.lurix@gmail.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/lurixofficial">@lurixofficial</a></p>
-    <p>Discord: <a href="https://discord.gg/nSKcNBWHt7">Join LURIX Support</a></p>
-    <p>Patreon: <a href="#">Support us on Patreon</a></p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p><a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
-  </footer>
+    <!-- JS Section (Optional for further functionality) -->
+    <script>
+        // You can add any additional JavaScript functionality here
+        console.log("LURIX website is loaded!");
+    </script>
 
 </body>
+
 </html>
