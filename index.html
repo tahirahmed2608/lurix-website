@@ -1,244 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LURIX - Multi Bot System</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LURIX | Discord Moderation Bot</title>
+    <style>
+        /* Basic Reset and Body Style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: linear-gradient(-45deg, #000, #111, #222, #000);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: white;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
+        /* Header Styling */
+        header {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-    }
+        header h1 {
+            font-size: 36px;
+        }
 
-    .nav-buttons {
-      display: flex;
-      gap: 30px;
-    }
+        /* Container for All Sections */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
 
-    .nav-buttons a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+        /* Button Styling */
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
 
-    .nav-buttons a:hover {
-      color: #00bfff;
-    }
+        .btn:hover {
+            background-color: #0056b3;
+        }
 
-    .intro {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding-top: 120px;
-    }
+        /* Feature Section Layout */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
 
-    .intro h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
+        .commands {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
 
-    .intro p {
-      font-size: 20px;
-    }
+        .command {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 45%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-    .section {
-      padding: 60px 40px;
-      scroll-behavior: smooth;
-    }
+        .command h4 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
 
-    .bot-card {
-      padding: 20px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      margin: 10px 0;
-    }
+        /* Privacy Policy and Terms Section */
+        .privacy, .terms {
+            margin-bottom: 40px;
+        }
 
-    .red { border-left: 6px solid #e63946; }
-    .green { border-left: 6px solid #90ee90; }
-    .blue { border-left: 6px solid #00bfff; }
-    .yellow { border-left: 6px solid #ffd700; }
+        /* Footer Section */
+        footer {
+            position: relative;
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
 
-    .cta-section {
-      text-align: center;
-      margin-top: 60px;
-    }
+        .footer-content {
+            position: relative;
+            z-index: 3;
+        }
 
-    .cta-section h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+        /* Premium Invitation Box */
+        .premium-box {
+            background-color: grey;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: inline-block;
+            font-size: 24px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-    .cta-section p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #aaa;
-    }
+        .diamond-symbol {
+            font-size: 30px;
+        }
 
-    .button {
-      background: #333;
-      padding: 12px 24px;
-      margin: 5px;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
+        .premium-text {
+            margin-left: 10px;
+        }
 
-    .button:hover {
-      background: #555;
-    }
+        /* Footer Links */
+        .footer-links {
+            margin-top: 10px;
+        }
 
-    footer {
-      background: #111;
-      padding: 40px;
-      text-align: center;
-    }
+        .footer-link {
+            display: inline-block;
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
 
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 30px;
-    }
+        .footer-link:hover {
+            text-decoration: underline;
+            color: #FFD700; /* Gold color on hover */
+        }
 
-    .footer-section {
-      min-width: 200px;
-    }
+        /* GIF Background */
+        .footer-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('your-gif-url.gif') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.3; /* Adjust to make background less prominent */
+            z-index: 1;
+        }
 
-    .footer-section h4 {
-      margin-bottom: 10px;
-      color: #fff;
-    }
+        /* Animation for Premium Box */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .footer-section a {
-      display: block;
-      color: #aaa;
-      text-decoration: none;
-      margin: 5px 0;
-    }
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .commands {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .footer-section a:hover {
-      color: #fff;
-    }
-  </style>
+            .command {
+                width: 80%;
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <div class="nav-buttons">
-      <a href="#">Home</a>
-      <a href="#commands">Commands</a>
-      <a href="#premium">Premium</a>
-      <a href="#invite">Invite</a>
-      <a href="https://discord.gg/nSKcNBWHt7">Support</a>
-      <a href="https://patreon.com/LURIX">Donate</a>
-      <a href="#add-bots">Add Bots</a>
-    </div>
-  </header>
 
-  <section class="intro">
-    <h1>Want Moderation? Get LURIX MODERATION Help.</h1>
-    <p id="rotating-text">Invite LURIX MODERATION to your Discord server.</p>
-    <a href="#invite" class="button">Invite Now</a>
-    <a href="https://discord.gg/nSKcNBWHt7" class="button">Support Server</a>
-  </section>
+    <!-- Header Section -->
+    <header>
+        <h1>LURIX - Your Ultimate Discord Moderation Bot</h1>
+    </header>
 
-  <section class="section" id="commands">
-    <div class="bot-card red">
-      <h3>LURIX | MODERATION</h3>
-      <p>Essential moderation tools for professional server control.</p>
-    </div>
-    <div class="bot-card green">
-      <h3>LURIX | MODERATION PREMIUM</h3>
-      <p>Advanced moderation automation, analytics and reduced cooldowns.</p>
-    </div>
-    <div class="bot-card blue">
-      <h3>LURIX | MUSIC</h3>
-      <p>Streamlined music playback with platform integration.</p>
-    </div>
-    <div class="bot-card yellow">
-      <h3>LURIX | MUSIC PREMIUM</h3>
-      <p>AI-based music recommendations and unlimited skips.</p>
-    </div>
-  </section>
+    <!-- Main Container -->
+    <div class="container">
 
-  <section class="cta-section" id="invite">
-    <h2>Invite LURIX MODERATION Now</h2>
-    <p>Smart Moderation. Seamless Experience.</p>
-    <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot%20applications.commands" class="button">Add LURIX MODERATION</a>
-    <a href="https://discord.gg/nSKcNBWHt7" class="button">Join Discord</a>
-  </section>
+        <!-- Get LURIX Button -->
+        <div class="text-center">
+            <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID&scope=bot&permissions=8" class="btn">Invite LURIX to Your Server</a>
+        </div>
 
-  <section class="section" id="terms">
-    <h2>Terms & Conditions</h2>
-    <p>By using LURIX, you agree to our rules, including responsible bot usage, no abuse, and compliance with Discord’s Terms of Service.</p>
-  </section>
+        <!-- Commands Section -->
+        <section>
+            <h2 class="section-title">LURIX Commands</h2>
 
-  <section class="section" id="privacy">
-    <h2>Privacy Policy</h2>
-    <p>LURIX does not collect or store personal data outside of what is needed for functionality (e.g., server IDs, user IDs). Data is not sold or shared.</p>
-  </section>
+            <!-- COREACCESS Section -->
+            <div class="commands">
+                <div class="command">
+                    <h4>COREACCESS</h4>
+                    <ul>
+                        <li>/help</li>
+                        <li>/ping</li>
+                        <li>/serverinfo</li>
+                        <li>/userinfo</li>
+                        <li>/avatar</li>
+                        <li>/about</li>
+                        <li>/roleinfo</li>
+                        <li>/vote</li>
+                        <li>/invite</li>
+                    </ul>
+                </div>
 
-  <footer>
-    <p>Moderate your servers by auto moderation.</p>
-    <div class="footer-grid">
-      <div class="footer-section">
-        <h4>Social</h4>
-        <a href="mailto:official.lurix@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://instagram.com/lurixofficial"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://discord.gg/nSKcNBWHt7"><i class="fab fa-discord"></i> Discord</a>
-      </div>
-      <div class="footer-section">
-        <h4>Resources</h4>
-        <a href="mailto:official.lurix@gmail.com">Email</a>
-        <a href="#invite">Invite</a>
-        <a href="https://discord.gg/nSKcNBWHt7">Support</a>
-      </div>
-      <div class="footer-section">
-        <h4>Legal</h4>
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#terms">Terms & Conditions</a>
-      </div>
-      <div class="footer-section">
-        <h4>Get Premium</h4>
-        <a href="https://patreon.com/LURIX"><i class="fas fa-gem"></i> Patreon</a>
-      </div>
+                <!-- UTILKIT Section -->
+                <div class="command">
+                    <h4>UTILKIT</h4>
+                    <ul>
+                        <li>/announce</li>
+                        <li>/audit</li>
+                        <li>/dehoist</li>
+                        <li>/inviteprune</li>
+                        <li>/lookup</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ASSISTDOCK Section -->
+            <div class="commands">
+                <div class="command">
+                    <h4>ASSISTDOCK</h4>
+                    <ul>
+                        <li>/setup</li>
+                        <li>/strikeCode</li>
+                        <li>/messagelog</li>
+                        <li>/modlog</li>
+                        <li>/serverlog</li>
+                        <li>/voicelog</li>
+                        <li>/avatarlog</li>
+                        <li>/timezone</li>
+                        <li>/modrole</li>
+                        <li>/settings</li>
+                    </ul>
+                </div>
+
+                <!-- MODCORE Section -->
+                <div class="command">
+                    <h4>MODCORE</h4>
+                    <ul>
+                        <li>/alert</li>
+                        <li>/kick</li>
+                        <li>/ban</li>
+                        <li>/wipeban</li>
+                        <li>/ghostban</li>
+                        <li>/audiokick</li>
+                        <li>/shiftvc</li>
+                        <li>/mute</li>
+                        <li>/unmute</li>
+                        <li>/slowmode</li>
+                        <li>/impact</li>
+                        <li>/freeze</li>
+                        <li>/clean</li>
+                        <li>/modlogs</li>
+                        <li>/vcrole</li>
+                        <li>/mediafilter</li>
+                        <li>/clearimpact</li>
+                        <li>/investigate</li>
+                        <li>/reason</li>
+                        <li>/cooldown</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- AUTOSHIELD Section -->
+            <div class="commands">
+                <div class="command">
+                    <h4>AUTOSHIELD</h4>
+                    <ul>
+                        <li>/antiinvite</li>
+                        <li>/anticopypasta</li>
+                        <li>/antieveryone</li>
+                        <li>/antireferral</li>
+                        <li>/maxmention</li>
+                        <li>/maxlines</li>
+                        <li>/role</li>
+                        <li>/antiduplicate</li>
+                        <li>/autodehoist</li>
+                        <li>/filter</li>
+                        <li>/resolvelinks</li>
+                        <li>/autoraidmode</li>
+                        <li>/ignore</li>
+                        <li>/unignore</li>
+                    </ul>
+                </div>
+
+                <!-- LURIX PRIME Section -->
+                <div class="command">
+                    <h4>LURIX PRIME</h4>
+                    <ul>
+                        <li>/lurixprime activate</li>
+                        <li>/ghostban</li>
+                        <li>/audiokick</li>
+                        <li>/slowmode</li>
+                        <li>/avatarlogs</li>
+                        <li>/resolvelinks</li>
+                        <li>/announce</li>
+                        <li>/voicelogs</li>
+                        <li>/serverlogs</li>
+                        <li>/lookup</li>
+                        <li>/filters</li>
+                        <li>/resolvelinks</li>
+                        <li>/redirects</li>
+                        <li>/filters</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section class="privacy">
+            <h2 class="section-title">Privacy Policy</h2>
+            <p>Read our <a href="#">privacy policy</a>.</p>
+        </section>
+
+        <!-- Terms of Service Section -->
+        <section class="terms">
+            <h2 class="section-title">Terms of Service</h2>
+            <p>Read our <a href="#">terms of service</a>.</p>
+        </section>
+
     </div>
-    <p style="margin-top: 20px; color: #666;">© 2025 LURIX | All rights reserved — Team LURIX</p>
-  </footer>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-background"></div>
+        <div class="footer-content">
+            <!-- Premium Invitation Box -->
+            <div class="premium-box">
+                <span class="diamond-symbol">💎</span><span class="premium-text">Premium Access Available!</span>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://discord.com/invite/YOUR_SERVER" class="footer-link">Support</a>
+                <a href="https://github.com/YOUR_REPO" class="footer-link">GitHub</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID&scope=bot&permissions=8" class="footer-link">Invite LURIX</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
+
 </html>
