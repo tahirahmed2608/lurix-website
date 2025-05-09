@@ -2012,7 +2012,7 @@ header nav a.nav-link:hover {
             observer.observe(el);
         });
 
-        // Page navigation function
+        // Page navigation function with URL handling
         function showPage(pageId) {
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
@@ -2021,16 +2021,31 @@ header nav a.nav-link:hover {
             
             // Show selected page
             const page = document.getElementById(pageId);
-
             if (page) {
                 page.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update URL without page reload
+                const newUrl = pageId === 'home' ? '/' : `/${pageId}`;
+                window.history.pushState({ page: pageId }, '', newUrl);
+                
+                // Update page title
+                document.title = `LURIX | ${pageId.charAt(0).toUpperCase() + pageId.slice(1)}`;
             }
         }
 
-        // Show home page by default
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (event) => {
+            const pageId = event.state?.page || 'home';
+            showPage(pageId);
+        });
+
+        // Initialize page based on URL
         document.addEventListener('DOMContentLoaded', () => {
-            showPage('home');
+            const path = window.location.pathname.slice(1); // Remove leading slash
+            const pageId = path || 'home';
+            showPage(pageId);
+            
             // Initialize theme from localStorage or default to dark
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light') {
